@@ -1,38 +1,19 @@
 ---
-interface Props {
-	title: string;
-}
-
+import BaseLayout from "./BaseLayout.astro";
 const { title } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
-<style is:global>
-	:root {
-		--accent-gradient: linear-gradient(45deg, #FF6F00 30%, black 50%, blue 70%); 
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #FFC77D
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
+
+
+<BaseLayout title={title}>
+    <header class="h-24 bg-pink-500 p-5 flex flex-row items-center gap-5">
+        <img src="/logo.png" alt="realfagskjelleren logo" class="h-full">
+        <h1 class="text-4xl">Realfagskjelleren</h1>
+    </header>
+
+    <slot />
+
+    <footer>
+
+    </footer>
+</BaseLayout>
